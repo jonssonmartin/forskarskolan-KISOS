@@ -75,7 +75,7 @@ for (i in 1:n_individuals) {
 # View the first few rows
 head(SV)
 nrow(SV)
-
+SV <- SV |> arrange(LopNr, INDATUM)
 
 # Optionally save to CSV
 # write.csv(dataset, "simulated_dataset.csv", row.names = FALSE)
@@ -126,6 +126,8 @@ for (i in 1:n_individuals) {
 
 head(OV)
 nrow(OV)
+
+OV <- OV |> arrange(LopNr, INDATUM)
 
 write.csv(OV, "PAR_OV_project.csv", row.names = FALSE)
 
@@ -216,5 +218,9 @@ write.csv(sim_data |> filter(Year==2022), "Project_LISA_2022.csv", row.names = F
 write.csv(sim_data |> filter(Year==2023), "Project_LISA_2023.csv", row.names = FALSE)
 write.csv(sim_data |> filter(Year==2024), "Project_LISA_2024.csv", row.names = FALSE)
 write.csv(sim_data |> filter(Year==2025), "Project_LISA_2025.csv", row.names = FALSE)
+
+
+
+df <- read.csv("https://raw.githubusercontent.com/jonssonmartin/forskarskolan-KISOS/main/PAR_OV_project.csv")
 
 
